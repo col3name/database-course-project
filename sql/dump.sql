@@ -250,5 +250,3 @@ CREATE UNIQUE INDEX UN_game_home_team_start
   ON `game` (home_team_id, start);
 CREATE UNIQUE INDEX UN_game_guest_team_start
   ON `game` (guest_team_id, start);
-
-
