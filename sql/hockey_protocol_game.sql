@@ -1,0 +1,7 @@
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (1, 1, 2, 1, null, 0, 0, '2018-10-09 19:00:00', null);
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (2, 1, 1, 2, null, 0, 0, '2018-10-04 19:00:00', '2018-10-04 21:00:02');
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (3, 2, 1, 2, '01:00:00', 5, 4, '2017-10-04 19:00:00', '2017-10-04 21:05:00');
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (4, 2, 1, 2, '01:00:00', 7, 1, '2017-10-15 19:00:00', '2017-10-15 21:05:05');
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (5, 2, 2, 1, '01:00:00', 0, 5, '2017-10-16 19:00:00', '2017-10-16 21:05:00');
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (6, 2, 1, 3, '01:00:07', 0, 3, '2017-10-20 19:00:00', '2017-10-20 21:05:00');
+INSERT INTO hockey_protocol.game (id, season_id, guest_team_id, home_team_id, time, guest_team_goal_count, home_team_goal_count, start, end) VALUES (7, 2, 1, 2, '01:00:00', 2, 3, '2017-10-25 19:00:00', '2017-10-25 21:05:00');

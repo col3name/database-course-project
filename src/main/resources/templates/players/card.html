@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<tr th:fragment="tableRow (playerId, firstName, lastName, positionName, bornDate)">
+    <td><a th:href="@{/players/{id}(id=${playerId})}" th:text="*{lastName + ' ' + firstName}"></a></td>
+    <td th:text="*{positionName}"></td>
+    <td th:text="*{bornDate}"></td>
+</tr>
+</body>
+</html>

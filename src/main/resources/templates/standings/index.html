@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+    <h2>Guest games</h2>
+    <p th:if="${standings.isEmpty()}">
+        Not found
+    </p>
+    <table th:if="${standings.size() > 0}">
+        <thead>
+        <th>teamId</th>
+        <th>teamName</th>
+        <th>gameCount</th>
+        <th>goalsScored</th>
+        <th>goalsMissed</th>
+        <th>countWin</th>
+        <th>countLose</th>
+        <th>countOvertimeWin</th>
+        <th>countOvertimeLose</th>
+        <th>points</th>
+        </thead>
+        <tbody>
+        <tr th:each="stat : ${standings}" th:object="${stat}">
+            <td><a th:href="@{/teams/__${stat.teamId}__}"><span th:text="*{teamName}"></span></a></td>
+            <td th:text="*{gameCount}"></td>
+            <td th:text="*{goalsScored}"></td>
+            <td th:text="*{goalsMissed}"></td>
+            <td th:text="*{countWin}"></td>
+            <td th:text="*{countLose}"></td>
+            <td th:text="*{countOvertimeWin}"></td>
+            <td th:text="*{countOvertimeLose}"></td>
+            <td th:text="*{points}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

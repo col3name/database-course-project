@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta teamName="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="http://localhost:8080/city" method="post" enctype='application/json'>
+    <input type="text" teamName="teamName">
+    <input type="submit" placeholder="submit">
+</form>
+
+<form action="http://localhost:8080/players" method="post" enctype='application/json'>
+    <input type="text" teamName="firstName">
+    <input type="text" teamName="lastName">
+    <input type="date" teamName="bornDate">
+    <input type="image" teamName="photo">
+    <input type="number" teamName="playerPositionId">
+    <input type="text" hidden teamName="playerPositionName">
+    <input type="number" teamName="birthCityId">
+    <input type="text" teamName="birthCityName">
+    <input type="submit" placeholder="submit">
+</form>
+</body>
+</html>

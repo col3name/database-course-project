@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table th:object="${baseInfo}">
+    <tr>
+        <th>Name</th>
+        <td><b th:text="*{teamName}"></b></td>
+        <th>foundationDate:</th>
+        <td><b th:text="*{foundationDate}"></b></td>
+        <th>city:</th>
+        <td><b th:text="*{city.getName()}"></b></td>
+        <img th:attr="src=*{avatar}"/>
+    </tr>
+</table>
+
+<h2>Last game result</h2>
+<p th:if="${lastGames.isEmpty()}">
+    Not found
+</p>
+<table th:else>
+    <thead>
+    <th>gameId;</th>
+    <th>homeTeamName;</th>
+    <th>guestTeamName;</th>
+    <th>homeTeamGoalCount;</th>
+    <th>guestTeamGoalCount;</th>
+    <th>homeTeamCityName;</th>
+    <th>guestTeamCityName;</th>
+    <th>Date start;</th>
+    <th>Date end;</th>
+    </thead>
+    <tbody>
+    <tr data-th-each="game : ${lastGames}" th:object="${game}">
+        <td><a th:href="@{/games/__${game.gameId}__}"><span  th:text="*{gameId}"></span></a></td>
+        <td><a th:href="@{/teams/__${game.homeTeamId}__}"><span th:text="*{homeTeamName}"></span></a></td>
+        <td><a th:href="@{/teams/__${game.guestTeamId}__}"><span th:text="*{guestTeamName}"></span></a></td>
+
+        <td th:text="*{homeTeamGoalCount}"></td>
+        <td th:text="*{guestTeamGoalCount}"></td>
+
+        <td th:text="*{homeTeamCityName}"></td>
+        <td th:text="*{guestTeamCityName}"></td>
+
+        <td th:text="*{start}"></td>
+        <td th:text="*{end}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Coming game</h2>
+<p th:if="${comingGames.isEmpty()}">
+    Not found
+</p>
+<table th:else>
+    <thead>
+    <th>gameId;</th>
+    <th>homeTeamName;</th>
+    <th>guestTeamName;</th>
+    <th>homeTeamGoalCount;</th>
+    <th>guestTeamGoalCount;</th>
+    <th>homeTeamCityName;</th>
+    <th>guestTeamCityName;</th>
+    <th>Date start;</th>
+    <th>Date end;</th>
+    </thead>
+    <tbody>
+    <tr th:each="game : ${comingGames}" th:object="${game}">
+        <td><a th:href="@{/games/__${game.gameId}__}"><span  th:text="*{gameId}"></span></a></td>
+        <td><a th:href="@{/teams/__${game.homeTeamId}__}"><span th:text="*{homeTeamName}"></span></a></td>
+        <td><a th:href="@{/teams/__${game.guestTeamId}__}"><span th:text="*{guestTeamName}"></span></a></td>
+
+        <td th:text="*{homeTeamGoalCount}"></td>
+        <td th:text="*{guestTeamGoalCount}"></td>
+
+        <td th:text="*{homeTeamCityName}"></td>
+        <td th:text="*{guestTeamCityName}"></td>
+
+        <td th:text="*{start}"></td>
+        <td th:text="*{end}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:if="${roster.isEmpty()}">
+    Roster empty
+</div>
+<div th:else>
+    <table>
+        <thead>
+        <th>Фамилия, Имя</th>
+        <th>Ампула</th>
+        <th>Дата рождения</th>
+        </thead>
+        <tbody>
+        <tr th:each="player : ${roster}">
+            <th:block th:object="${player}"
+                      th:replace="~{players/card :: tableRow (${player.playerId}, ${player.firstName},${player.lastName} ,${player.positionName} , ${player.bornDate})}"></th:block>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

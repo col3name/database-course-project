@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Hello
+<a th:href="@{'/players/'}">players</a>
+<p th:uthext="#{newOrUpdateForm.welcome(${player.firstName + ' ' + player.lastName})}"></p>
+<p th:text="(*{firstName == 'Александр'} ? 'bad name' : 'good name' ) " th:object="${player}"></p>
+<a th:href="@{/players/{playerId}(playerId=${player.id})}" th:text="${player.id + ' ' + player.firstName + ' ' + player.lastName}"></a>
+<form th:action="@{/players/{id}/{action}(id=${player.id}, action=${action})}" th:object="${player}" method="post">
+    <input type="text" th:field="*{firstName}">
+    <input type="text" th:field="*{lastName}">
+    <input type="text" th:field="*{bornPlace.name}">
+
+    <label th:for="${#ids.next('bornDate')}" th:text="*{bornDate}">Born date</label>
+    <input type="text" th:field="*{bornDate}">
+
+    <label th:for="${#ids.next('playerPositionId')}" th:text="*{playerPositionId}">Born date</label>
+    <input type="text" th:field="*{playerPositionId}">
+
+    <label th:for="${#ids.next('isRightShoot')}" th:text="*{isRightShoot} ? 'right' : 'left'">Born date</label>
+    <input type="text" th:field="*{isRightShoot}">
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

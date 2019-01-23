@@ -1,0 +1,2 @@
+INSERT INTO hockey_protocol.user (id, username, email, password, avatar) VALUES (1, 'admin', 'admin@gmail.com', 'admin', '');
+INSERT INTO hockey_protocol.user (id, username, email, password, avatar) VALUES (2, 'user', 'user@gmail.com', 'user', '');

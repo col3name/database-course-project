@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="default">
+    <h2>Last game result</h2>
+    <table>
+        <thead>
+        <th>gameId;</th>
+        <th>homeTeamName;</th>
+        <th>guestTeamName;</th>
+        <th>homeTeamGoalCount;</th>
+        <th>guestTeamGoalCount;</th>
+        <th>homeTeamCityName;</th>
+        <th>guestTeamCityName;</th>
+        <th>Date start;</th>
+        <th>Date end;</th>
+        </thead>
+        <tbody>
+        <tr th:if="${lastGames.isEmpty()}">
+            Not found games
+        </tr>
+        <tr th:else="" data-th-each="lastGame : ${lastGames}" th:object="${lastGame}">
+            <td><b th:text="*{gameId}"></b></td>
+            <td><a th:href="@{/teams/__${lastGame.homeTeamId}__}"><span th:text="*{homeTeamName}"></span></a></td>
+            <td><a th:href="@{/teams/__${lastGame.guestTeamId}__}"><span th:text="*{guestTeamName}"></span></a></td>
+
+            <td th:text="*{homeTeamGoalCount}"></td>
+            <td th:text="*{guestTeamGoalCount}"></td>
+
+            <td th:text="*{homeTeamCityName}"></td>
+            <td th:text="*{guestTeamCityName}"></td>
+
+            <td th:text="*{start}"></td>
+            <td th:text="*{end}"></td>
+        </tr>
+        </tbody>
+    </table>
+</header>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="default">
+    <nav>
+        <a th:href="@{/players}" th:text="players"></a>
+        <a th:href="@{/teams}" th:text="teams"></a>
+        <a th:href="@{/games}" th:text="games"></a>
+        <a th:href="@{/standings}" th:text="standings"></a>
+    </nav>
+</header>
+</body>
+</html>

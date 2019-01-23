@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout (template)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<header><th:block th:replace="~{fragments/header :: default}"></th:block></header>
+<main><th:block th:include="${template}"></th:block></main>
+<footer><th:block th:replace="~{fragments/footer :: default}"></th:block></footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<a th:href="@{'/players/'}">players</a>
+<a th:href="@{/players/{playerId}/edit(playerId=${playerInfo.id})}" th:text="edit"></a>
+<div th:if="${playerInfo == null}">
+    Not found player by id <span th:text="${playerInfo.id}"></span>
+</div>
+
+<div th:else>
+    <table th:object="${playerInfo}">
+        <tr>
+            <th>Name</th>
+            <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
+        </tr>
+        <tr>
+            <th>bornDate</th>
+            <td th:text="*{bornDate}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td th:text="*{birthCityName}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>isRightShoot</th>
+            <td th:text="*{isRightShoot}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>playerTeamName</th>
+            <td th:text="*{playerTeamName}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>playerPosition</th>
+            <td th:text="*{playerPositionFullName}"/>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <thead>
+        <th>Season</th>
+        <th>team name</th>
+        <th>count Game</th>
+        <th>goalsScored</th>
+        <th>goalsMissed</th>
+        <th>difference</th>
+        <th>countWin</th>
+        <th>countLose</th>
+        <th>countOvertimeWin</th>
+        <th>countOvertimeLose</th>
+        <th>points</th>
+        </thead>
+        <tbody>
+        <tr th:each="teamStanding : ${teamStandings}" th:object="${teamStanding}">
+            <td><b th:text="*{seasonStart + '-' + seasonEnd}"></b></td>
+            <td><a th:href="@{/teams/{id}(id=*{team.id})}" th:text="*{team.name}"></a></td>
+            <td th:text="*{countGame}"></td>
+            <td th:text="*{goalsScored}"></td>
+            <td th:text="*{goalsMissed}"></td>
+
+            <td th:text="*{difference}"></td>
+
+            <td th:text="*{countWin}"></td>
+
+            <td th:text="*{countLose}"></td>
+
+            <td th:text="*{countOvertimeWin}"></td>
+
+            <td th:text="*{countOvertimeLose}"></td>
+
+            <td th:text="*{points}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
